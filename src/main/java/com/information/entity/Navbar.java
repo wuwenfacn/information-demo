@@ -7,6 +7,11 @@ public class Navbar {
   private String name;
   private long sort;
 
+  public Navbar(long id, String name, long sort) {
+    this.id = id;
+    this.name = name;
+    this.sort = sort;
+  }
 
   public long getId() {
     return id;

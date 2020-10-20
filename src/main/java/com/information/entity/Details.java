@@ -13,6 +13,17 @@ public class Details {
   private String telephone;
   private String image;
 
+  public Details(long id, String name, String price, String describe, String place, String type, String business, String telephone, String image) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.describe = describe;
+    this.place = place;
+    this.type = type;
+    this.business = business;
+    this.telephone = telephone;
+    this.image = image;
+  }
 
   public long getId() {
     return id;
