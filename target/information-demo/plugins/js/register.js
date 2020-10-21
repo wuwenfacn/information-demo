@@ -87,10 +87,11 @@ $(function () {
     )
 });
 function ff (){
-    let password = document.getElementById("password").value;
-    let rePassword = document.getElementById("rePassword").value;
-    if(password !== rePassword){
+    if($("#password").val() !== $("#rePassword").val()){
         alert("两次密码不一致！");
+        return false;
+    }else if($("#username").val() === "" || $("#password").val() === "" || $("#rePassword").val() === "" || $("#type").val() === ""){
+        alert("内容不能为空！");
         return false;
     }
     return true;

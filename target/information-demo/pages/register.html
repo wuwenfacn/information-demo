@@ -23,11 +23,12 @@
       <h1 class="head-title">用户注册页面</h1>
     </header>
     <div class="col-lg-6 col-lg-offset-3" id='login_box'>
-      <form id="register" class="form-horizontal" method="post" onsubmit="ff()">
+      <a href="../index.html" class="esc">>>>回到首页</a>
+      <form id="register" class="form-horizontal" method="post" onsubmit="return ff()">
         <div class="form-group">
           <label class="col-lg-3 control-label">账号</label>
           <div class="col-lg-7">
-            <input name="username" class="form-control" type="text" placeholder="请输入账号"/>
+            <input name="username" id="username" class="form-control" type="text" placeholder="请输入账号"/>
           </div>
         </div>
         <div class="form-group">
@@ -45,7 +46,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">用户类型</label>
           <div class="col-lg-7">
-            <select class="type" name="type">
+            <select class="type" name="type" id="type">
               <option value="">请选择类型</option>
               <option value="administrator">管理员</option>
               <option value="store">销售商</option>

@@ -19,3 +19,10 @@ body {
 .head-title {
     color: white;
 }
+
+.type{
+    width: 440px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #b2b2b2;
+}

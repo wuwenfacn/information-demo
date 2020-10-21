@@ -59,8 +59,25 @@ $(function () {
                             message: "密码必须是字母开头长度在2-16之间"
                         }
                     }
+                },
+                type: {
+                    validators: {
+                        notEmpty: {
+                            message: "请选择用户类型"
+                        },
+                        regexp: {
+                            regexp: "",
+                        }
+                    }
                 }
             }
         }
     )
-})
+});
+function ff (){
+    if($("#username").val() === "" || $("#password").val() === "" || $("#rePassword").val() === "" || $("#type").val() === ""){
+        alert("内容不能为空！");
+        return false;
+    }
+    return true;
+}
