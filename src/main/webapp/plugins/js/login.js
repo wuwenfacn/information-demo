@@ -1,4 +1,21 @@
 $(function () {
+    let code = getQueryString("code");
+    if(code === "null"){
+        $.cookie("code",null);
+    }
+    if($.cookie("code") === "200"){
+        window.location.href="../index.html";
+    }else {
+        window.location.href="#";
+    }
+    function getQueryString(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        let r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
     $("#btn").click(function () {
         let data = JSON.stringify($("#login").serializeJSON());
         $.ajax({
@@ -9,6 +26,7 @@ $(function () {
             dataType:"text",
             success:function (data) {
                 if (JSON.parse(data).code === "200") {
+                    $.cookie("code", JSON.parse(data).code, { expires: 7 });
                     window.location.href="../index.html";
                 } else {
                     alert(JSON.parse(data).message);

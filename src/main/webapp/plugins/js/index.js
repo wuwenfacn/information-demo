@@ -1,6 +1,9 @@
 let INDEX_URL = "http://localhost:8080/api/index";
 let TROPIC_URL = "http://localhost:8080/api/tropic";
 $(function () {
+    $("#logout").click(function () {
+        window.location.href="pages/login.html?code=null";
+    })
     $("#navbar>li").each(function () {
         $(this).click(function () {
             $(".fruits").remove();
