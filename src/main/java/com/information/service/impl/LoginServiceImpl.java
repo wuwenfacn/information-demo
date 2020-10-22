@@ -20,16 +20,17 @@ public class LoginServiceImpl implements LoginService {
      */
     @Override
     public boolean checkUser(User user) {
-        if (user.getUsername()==null||user.getPassword()==null){
-            System.out.println("用户名为空");
+        if (user.getUsername()==null||user.getPassword()==null||user.getType()==null){
+            System.out.println("用户名或密码或类型为空！");
             return false;
         }
         if(dao.checkUsername(user.getUsername())==0){//用户名不存在
             return false;
         }
         User checker = dao.getUserByUsername(user.getUsername());
-        //返回账号密码匹配与否
-        boolean flag = user.getUsername().equals(checker.getUsername())&&user.getPassword().equals(checker.getPassword());
-        return flag;
+        //返回账号密码类型匹配与否
+        return user.getUsername().equals(checker.getUsername())
+                &&user.getPassword().equals(checker.getPassword())
+                &&user.getType().equals(checker.getType());
     }
 }

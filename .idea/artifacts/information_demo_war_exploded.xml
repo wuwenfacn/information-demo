@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="information-demo:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/information_demo_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="information-demo" />
+          <element id="library" level="application" name="bootstrap" />
+          <element id="library" level="application" name="bootstrapValidator" />
+          <element id="library" level="application" name="zh_CN" />
+          <element id="library" level="application" name="jquery.serializejson" />
+          <element id="library" level="application" name="jquery.cookie" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.60" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.1" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="information-demo/web/Web" />
+    </root>
+  </artifact>
+</component>

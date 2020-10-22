@@ -1,0 +1,95 @@
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+    /*先查询*/
+    $(function () {
+        /*查询方法*/
+        $("#btn").click(function () {
+            let params = {
+                kw: $("input[name='text']").val()
+            };
+            /*请求后台*/
+            $.ajax({
+                url: "http://localhost:8080/api/ServletSel",//请求路径
+                type: "post",
+                data: params,
+                /*后台响应*//*信息回填*/
+                success: function (date) {
+                    $("#username").text(date.username).val(date.username)
+                    $("#pwd").text(date.password).val(date.password)
+                    if (date.type === "管理员") {
+                        $("#one").attr("selected", "selected")
+                    } else if (date.type === "商城会员") {
+                        $("#two").attr("selected", "selected")
+                    } else {
+                        $("#three").attr("selected", "selected")
+                    }
+                },
+                error: function () {
+                    alert("修改失败");
+                }
+            });
+        })
+
+        /*表单按钮的功能*/
+        $("#buttonn").click(function () {
+            let btn= {
+                name:$("#username").val()
+            };
+            $.ajax({
+                url: "http://localhost:8080/api/ServletDeleteUser",
+                data: btn,
+                type: "post",
+                success: function (data) {
+                    alert("成功")
+                    //alert("删除成功");
+                },
+                error: function () {
+                    alert("删除失败");
+                }
+            });
+        })
+    })
+
+
+
+</script>
+
+<h1>删除信息</h1>
+<div class="col-lg-6" align="center">
+    <div class="input-group">
+        <input type="text" name="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="btn">Go!</button>
+      </span>
+    </div>
+</div>
+<!--显示信息的表单 不可修改-->
+<br>
+<div class="input-group">
+    <input type="button" id="buttonn" class="form-control" value="删除">
+</div>
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon">用户名:</span>
+            <input type="text" id="username" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">密码:</span>
+            <input id="pwd" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">账户类型:</span>
+            <select id="types"  class="form-control">
+                <option id="one" value="administor">管理员账户</option>
+                <option id="two" value="customer">商城会员</option>
+                <option id="three" value="store">销售商</option>
+            </select><br>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+    <!--样式-->
+    <link href="../plugins/css/AdminIndex.css" rel="stylesheet">
+    <!---->
+    <script src="../plugins/js/add.js"></script>
+    <script>
+        $(function () {
+            $('#add-shop').click(function () {
+                $("#box").load("AddShops.html");
+            });
+            $('#modify-shop').click(function () {
+                $("#box").load("ModifyShop.html");
+            });
+            $('#select-shop').click(function () {
+                $("#box").load("SelectShop.html");
+            });
+            $('#delete-shop').click(function () {
+               $("#box").load("DeleteShop.html")
+            });
+            /*****************  User   ****************************/
+            $('#modify-user').click(function () {
+                $("#box").load("ModifyUser.html")
+            });
+            $('#select-user').click(function () {
+                $("#box").load("SelectUser.html")
+            });
+            $('#delete-user').click(function () {
+                $("#box").load("DeleteUser.html")
+            });
+            /*****************  Admin  ****************************/
+            $('#modify-adminname').click(function () {
+                $("#box").load(".html")
+            });
+            $('#modify-pwd').click(function () {
+                $("#box").load(".html")
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+    <div id="left">
+        <ul  class="list-group">
+            <li class="list-group-item list-group-item-success">商品管理</li>
+            <ul class="list-group">
+                <li class="list-group-item"><a id="add-shop">添加商品</a></li>
+                <li class="list-group-item"><a id="modify-shop">修改商品</a></li>
+                <li class="list-group-item"><a id="select-shop">查询商品</a></li>
+                <li class="list-group-item"><a id="delete-shop">删除商品</a></li>
+            </ul>
+            <li class="list-group-item list-group-item-success">用户管理</li>
+            <ul  class="list-group">
+                <li class="list-group-item"><a id="modify-user">修改用户</a></li>
+                <li class="list-group-item"><a id="select-user">查询用户</a></li>
+                <li class="list-group-item"><a id="delete-user">删除用户</a></li>
+            </ul>
+        </ul>
+    </div>
+
+<div id="box">
+
+</div>
+
+</body>
+</html>

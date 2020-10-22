@@ -9,7 +9,6 @@ import com.information.entity.User;
  * Description:
  */
 public interface LoginService {
-
-
+    //判断用户名、密码和用户类型是否匹配
     boolean checkUser(User user);
 }

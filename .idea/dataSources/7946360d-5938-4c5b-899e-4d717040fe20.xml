@@ -655,82 +655,118 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="204" parent="2" name="details"/>
-    <table id="205" parent="2" name="navbar"/>
-    <table id="206" parent="2" name="user"/>
-    <column id="207" parent="204" name="id">
+    <table id="204" parent="2" name="collection"/>
+    <table id="205" parent="2" name="details"/>
+    <table id="206" parent="2" name="navbar"/>
+    <table id="207" parent="2" name="user"/>
+    <column id="208" parent="204" name="username">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </column>
+    <column id="209" parent="204" name="namese">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="210" parent="204" name="ciscancle">
+      <Position>3</Position>
+      <DataType>int(1)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="211" parent="204" name="ctime">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="212" parent="205" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="208" parent="204" name="name">
+    <column id="213" parent="205" name="namese">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="209" parent="204" name="price">
+    <column id="214" parent="205" name="prices">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="210" parent="204" name="describe">
+    <column id="215" parent="205" name="describes">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="211" parent="204" name="place">
+    <column id="216" parent="205" name="place">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="212" parent="204" name="type">
+    <column id="217" parent="205" name="types">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="213" parent="204" name="business">
+    <column id="218" parent="205" name="business">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="214" parent="204" name="telephone">
+    <column id="219" parent="205" name="telephone">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="215" parent="204" name="image">
+    <column id="220" parent="205" name="images">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="216" parent="204" name="PRIMARY">
+    <key id="221" parent="205" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="217" parent="205" name="id">
+    <column id="222" parent="206" name="n_id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="218" parent="205" name="name">
+    <column id="223" parent="206" name="n_name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="219" parent="205" name="sort">
+    <column id="224" parent="206" name="n_sort">
       <Position>3</Position>
       <DataType>int(10)|0s</DataType>
     </column>
-    <key id="220" parent="205" name="PRIMARY">
+    <key id="225" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>n_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="221" parent="206" name="username">
+    <column id="226" parent="207" name="userId">
       <Position>1</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>int(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="222" parent="206" name="password">
+    <column id="227" parent="207" name="username">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="223" parent="206" name="type">
+    <column id="228" parent="207" name="passwords">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
+    <column id="229" parent="207" name="types">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="230" parent="207" name="isDelete">
+      <Position>5</Position>
+      <DataType>varchar(2)|0s</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="231" parent="207" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

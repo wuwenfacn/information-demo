@@ -1,28 +1,47 @@
 package com.information.entity;
 
-
+/*展示所有水果信息实体类*/
 public class Details {
 
+  @Override
+  public String toString() {
+    return "Details{" +
+            "id=" + id +
+            ", namese='" + namese + '\'' +
+            ", prices='" + prices + '\'' +
+            ", describes='" + describes + '\'' +
+            ", place='" + place + '\'' +
+            ", types='" + types + '\'' +
+            ", business='" + business + '\'' +
+            ", telephone='" + telephone + '\'' +
+            ", images='" + images + '\'' +
+            '}';
+  }
+
+  public Details() {
+  }
+
   private long id;
-  private String name;
-  private String price;
-  private String describe;
+  private String namese;
+  private String prices;
+  private String describes;
   private String place;
-  private String type;
+  private String types;
   private String business;
   private String telephone;
-  private String image;
+  private String images;
 
-  public Details(long id, String name, String price, String describe, String place, String type, String business, String telephone, String image) {
+  public Details(long id, String namese, String prices, String describes,
+                 String place, String types, String business, String telephone, String images) {
     this.id = id;
-    this.name = name;
-    this.price = price;
-    this.describe = describe;
+    this.namese = namese;
+    this.prices = prices;
+    this.describes = describes;
     this.place = place;
-    this.type = type;
+    this.types = types;
     this.business = business;
     this.telephone = telephone;
-    this.image = image;
+    this.images = images;
   }
 
   public long getId() {
@@ -34,30 +53,30 @@ public class Details {
   }
 
 
-  public String getName() {
-    return name;
+  public String getNamese() {
+    return namese;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public String getPrice() {
-    return price;
-  }
-
-  public void setPrice(String price) {
-    this.price = price;
+  public void setNamese(String namese) {
+    this.namese = namese;
   }
 
 
-  public String getDescribe() {
-    return describe;
+  public String getPrices() {
+    return prices;
   }
 
-  public void setDescribe(String describe) {
-    this.describe = describe;
+  public void setPrices(String prices) {
+    this.prices = prices;
+  }
+
+
+  public String getDescribes() {
+    return describes;
+  }
+
+  public void setDescribes(String describes) {
+    this.describes = describes;
   }
 
 
@@ -70,12 +89,12 @@ public class Details {
   }
 
 
-  public String getType() {
-    return type;
+  public String getTypes() {
+    return types;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setTypes(String types) {
+    this.types = types;
   }
 
 
@@ -97,12 +116,14 @@ public class Details {
   }
 
 
-  public String getImage() {
-    return image;
+  public String getImages() {
+    return images;
   }
 
-  public void setImage(String image) {
-    this.image = image;
+  public void setImages(String images) {
+    this.images = images;
   }
+
+
 
 }

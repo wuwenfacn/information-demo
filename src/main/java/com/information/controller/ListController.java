@@ -1,13 +1,10 @@
 package com.information.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.information.entity.DetailsList;
 import com.information.service.impl.ListServiceImpl;
 import com.information.utils.ResponseEntity;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,8 +49,9 @@ public class ListController extends HttpServlet {
         }finally {
             br.close();
         }
+        int i = 0;
         //数据库获取到的信息
-        List list = service.listInformations(sb.substring(1,sb.length()-1));
+        List list = service.listInformations(sb.substring(1,sb.length()-1),i);
         ResponseEntity<List> responseEntity = new ResponseEntity<>();
         if (list!=null){
             //把数据返回前端

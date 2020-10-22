@@ -9,7 +9,8 @@ import com.information.entity.User;
  * Description:
  */
 public interface RegisterService {
-
+    //根据用户名判断用户名是否存在
     boolean checkUsername(String username);
+    //添加用户
     boolean insertUser(User user);
 }

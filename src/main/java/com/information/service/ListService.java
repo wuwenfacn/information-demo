@@ -14,7 +14,9 @@ import java.util.List;
  */
 public interface ListService {
 
-    List<Details> listInformations(String navbar);
+    //根据类型（热带、亚热带、温带）获取水果信息
+    List<Details> listInformations(String navbar,int i);
 
+    //获取水果类型（热带、亚热带、温带）
     List<Navbar> listNavbar();
 }

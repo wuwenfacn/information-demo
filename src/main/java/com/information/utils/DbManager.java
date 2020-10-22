@@ -7,6 +7,9 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Properties;
 
+/*
+* 连接数据库及关流的工具类
+* */
 public class DbManager {
     private static volatile DbManager instance = null;
     private static DataSource ds;

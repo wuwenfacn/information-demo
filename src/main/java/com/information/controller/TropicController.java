@@ -43,8 +43,9 @@ public class TropicController extends HttpServlet {
         }finally {
             br.close();
         }
+        int i = 0;
         //数据库获取到的信息
-        List list = service.listInformations("tropic");
+        List list = service.listInformations("tropic", i);
         ResponseEntity<List> responseEntity = new ResponseEntity<>();
         if (list!=null){
             //把数据返回前端

@@ -1,0 +1,53 @@
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+           let data= {};
+           data.namese = $("input[name='name']").val();
+            data.prices  = $("input[name='price']").val();
+            data.describes =$("input[name='describe']").val();
+            data.place = $("input[name='place']").val();
+            data.types = $("#type option:selected").val();
+            data.business=$("input[name='business']").val();
+            data.telephone=$("input[name='telephone']").val();
+            data.images=$("input[name='image']").val();
+           let  params = {
+               shop: JSON.stringify(data)
+           }
+            $.ajax({
+                url: "http://localhost:8080/api/ServletAdd",
+                data: params,
+                type: "post",
+                success: function (data) {
+                    alert("添加成功");
+                },
+                error: function () {
+                    alert("添加失败");
+                }
+            });
+        })
+    })
+    </script>
+
+<form method="post" id="test_form">
+    商品名：<input type="text" name="name"/><br>
+    图片：<input type="text" name="image"><br>
+    水果类型：
+    <select name="type" id="type">
+    <option value="temperate">温带水果</option>
+    <option value="tropic">热带水果</option>
+    <option value="Subtropics">亚热带水果</option>
+</select>
+    <br>
+    产地：<input type="text" name="place"/><br>
+    价格：<input type="text" name="price"/><br>
+    批发商：<input type="text" name="business"/><br>
+    联系方式：<input type="text" name="telephone"/><br>
+    描述：<input type="text" name="describe"/><br>
+    <br><br><br>
+    <button type="button" value="提交" id="btn">提交</button>
+    <input type="reset" value="重置" />
+</form>

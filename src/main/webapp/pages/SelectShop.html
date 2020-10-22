@@ -1,0 +1,44 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+    $(function () {
+        $("#btn").click(function(){
+            let params={
+                kw:$("input[name='text']").val()
+            };
+             $.ajax({
+            url: "http://localhost:8080/api/ServletSelect",//请求路径
+            type: "post",
+            data: params,
+            success: function (date) {
+                $("#show").append(
+                    $("<ul>")
+                        .append($("<li>").text(date.namese))
+                        .append($("<li>").text(date.prices))
+                        .append($("<li>").text(date.describes))
+                        .append($("<li>").text(date.place))
+                        .append($("<li>").text(date.types))
+                        .append($("<li>").text(date.business))
+                        .append($("<li>").text(date.telephone))
+                        .append($("<li>").text(date.images))
+                )
+            },
+            error: function () {
+                alert("修改成功");
+            }
+        });
+        })
+    })
+</script>
+<div class="col-lg-6" align="center">
+    <div class="input-group">
+        <input type="text" name="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="btn">Go!</button>
+      </span>
+    </div>
+</div>
+<div id="show">
+
+</div>
+</div>

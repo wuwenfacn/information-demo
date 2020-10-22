@@ -10,26 +10,43 @@ Target Server Type    : MYSQL
 Target Server Version : 50554
 File Encoding         : 65001
 
-Date: 2020-10-21 11:33:38
+Date: 2020-10-22 18:47:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for collection
+-- ----------------------------
+DROP TABLE IF EXISTS `collection`;
+CREATE TABLE `collection` (
+  `username` varchar(30) DEFAULT NULL,
+  `namese` varchar(255) DEFAULT NULL,
+  `ciscancle` int(1) DEFAULT '0',
+  `ctime` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of collection
+-- ----------------------------
+INSERT INTO `collection` VALUES ('zs', '红心火龙果', '0', '2020-10-22 16:02:22');
+INSERT INTO `collection` VALUES ('admin', '红心火龙果', '0', '2020-10-22 16:32:01');
 
 -- ----------------------------
 -- Table structure for details
 -- ----------------------------
 DROP TABLE IF EXISTS `details`;
 CREATE TABLE `details` (
-  `d_id` int(10) NOT NULL AUTO_INCREMENT,
-  `d_name` varchar(255) DEFAULT NULL,
-  `d_price` varchar(255) DEFAULT NULL,
-  `d_describe` varchar(255) DEFAULT NULL,
-  `d_place` varchar(255) DEFAULT NULL,
-  `d_type` varchar(255) DEFAULT NULL,
-  `d_business` varchar(255) DEFAULT NULL,
-  `d_telephone` varchar(255) DEFAULT NULL,
-  `d_image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`d_id`) USING BTREE
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `namese` varchar(255) DEFAULT NULL,
+  `prices` varchar(255) DEFAULT NULL,
+  `describes` varchar(255) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
+  `types` varchar(255) DEFAULT NULL,
+  `business` varchar(255) DEFAULT NULL,
+  `telephone` varchar(255) DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
@@ -89,13 +106,13 @@ INSERT INTO `navbar` VALUES ('3', '温带水果', '3');
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `u_id` int(25) NOT NULL AUTO_INCREMENT,
+  `userId` int(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
-  `type` varchar(20) DEFAULT NULL,
-  `is_delete` varchar(1) DEFAULT '1',
-  PRIMARY KEY (`u_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  `passwords` varchar(20) DEFAULT NULL,
+  `types` varchar(20) DEFAULT '',
+  `isDelete` varchar(2) DEFAULT '1',
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user

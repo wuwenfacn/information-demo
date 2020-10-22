@@ -1,0 +1,99 @@
+<!--修改功能-->
+<!--
+       先查询
+       后回显示
+       再修改
+-->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+    $(function () {
+        /*查询方法*/
+        $("#btn").click(function () {
+            let params = {
+                kw: $("input[name='text']").val()
+            };
+            /*请求后台*/
+            $.ajax({
+                url: "http://localhost:8080/api/ServletSelUser",//请求路径
+                type: "post",
+                data: params,
+                /*后台响应*//*信息回填*/
+                success: function (date) {
+                    $("#username").text(date.username).val(date.username)
+                    $("#pwd").text(date.password).val(date.password)
+                    if (date.type === "管理员") {
+                        $("#one").attr("selected", "selected")
+                    } else if (date.type === "商城会员") {
+                        $("#two").attr("selected", "selected")
+                    } else {
+                        $("#three").attr("selected", "selected")
+                    }
+
+                },
+                error: function () {
+                    alert("修改成功");
+                }
+            });
+        })
+        /*提交信息*/
+        $("#buttonn").click(function () {
+            let data= {};
+            data.username = $("#username").val()
+            data.password  = $("#pwd").val();
+            data.type = $("#types option:selected").val();
+            let  params = {
+                user: JSON.stringify(data)
+            }
+            $.ajax({
+                url: "http://localhost:8080/api/ServletUpdateUser",
+                data: params,
+                type: "post",
+                success: function (data) {
+                    alert("添加成功");
+                },
+                error: function () {
+                    alert("添加失败");
+                }
+            });
+        })
+    })
+</script>
+<!--搜索框-->
+<h1>修改信息</h1>
+<div class="col-lg-6" align="center">
+    <div class="input-group">
+        <input type="text" name="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="btn">Go!</button>
+      </span>
+    </div>
+</div>
+
+<!--表单 带回显功能-->
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon" >用户名:</span>
+            <input type="text" id="username" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">密码:</span>
+            <input id="pwd" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">账户类型:</span>
+            <select id="types"  class="form-control">
+                <option id="one" value="administor">管理员账户</option>
+                <option id="two" value="customer">商城会员</option>
+                <option id="three" value="store">销售商</option>
+            </select><br>
+        </div>
+        <br>
+        <div class="input-group">
+            <input type="button" id="buttonn" class="form-control" value="提交">
+        </div>
+    </form>
+</div>

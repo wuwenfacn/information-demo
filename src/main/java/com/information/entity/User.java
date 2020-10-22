@@ -1,6 +1,6 @@
 package com.information.entity;
 
-
+/*用户信息实体类*/
 public class User {
 
   private String username;

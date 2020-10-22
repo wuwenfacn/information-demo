@@ -1,6 +1,6 @@
 package com.information.entity;
 
-
+/*水果类型实体类*/
 public class Navbar {
 
   private long id;

@@ -1,0 +1,127 @@
+<!--
+    搜索框输入名字
+    提交到后台
+    先返回查询结果
+    点击删除按钮删除数据
+
+ -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+    $(function () {
+        $("#btn").click(function(){
+            let params={
+                kw:$("input[name='text']").val()
+            };
+            $.ajax({
+                url: "http://localhost:8080/api/ServletSelect",//请求路径
+                type: "post",
+                data: params,
+                success: function (date) {
+                    $("#name").text(date.namese).val(date.namese)
+                    $("img").attr("src",date.images).attr("width","100px").attr("height","100px").text(date.images)
+                    if (date.types==="热带水果"){
+                        $("#one").attr("selected","selected")
+                    }else if(date.types==="亚热带"){
+                        $("#two").attr("selected","selected")
+                    }else{
+                        $("#three").attr("selected","selected")
+                    }
+                    $("#place").text(date.place).val(date.place)
+                    $("#price").text(date.prices).val(date.prices)
+                    $("#bussiness").text(date.business).val(date.business)
+                    $("#telephone").text(date.telephone).val(date.telephone)
+                    $("#desc").text(date.describes).val(date.describes)
+                },
+                error: function () {
+                    alert("修改失败");
+                }
+            });
+        })
+        /*表单按钮的功能*/
+        $("#buttonn").click(function () {
+            let btn= {
+                name:$("#text").val()
+            };
+            $.ajax({
+                url: "http://localhost:8080/api/ServletDelete",
+                data: btn,
+                type: "post",
+                success: function (data) {
+                    alert(data)
+                    //alert("删除成功");
+                },
+                error: function () {
+                    alert("删除成功")
+                }
+            });
+        })
+    })
+
+
+
+</script>
+
+<!--搜索框-->
+<div class="col-lg-6" align="center">
+    <div class="input-group">
+        <input type="text" id="text" name="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="btn">Go!</button>
+      </span>
+    </div>
+</div>
+<!--显示信息的表单 不可修改-->
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <input type="button" id="buttonn" class="form-control" value="删除">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">商品名:</span>
+            <input type="text" id="name" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">图片:</span>
+            <img src="" id="image">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">种类:</span>
+            <select id="sele"  class="form-control">
+                <option id="one" value="tropic">热带水果</option>
+                <option id="two" value="Subtropics">亚热带水果</option>
+                <option id="three" value="temperate" >温带水果</option>
+            </select><br>
+            <!--<input type="text" class="form-control" placeholder="twitterhandle">-->
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">产地:</span>
+            <input id="place" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">价格:</span>
+            <input id="price" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">批发商:</span>
+            <input id="bussiness" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">联系方式:</span>
+            <input id="telephone" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">描述:</span>
+            <input id="desc" type="text" class="form-control" placeholder="twitterhandle">
+        </div>
+        <br>
+
+    </form>
+</div>
